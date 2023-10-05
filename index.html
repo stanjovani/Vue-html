@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Stanoja Jovanovic  - Portfolio</title>
+    <style>
+        /* Basic styling for the portfolio */
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+        header {
+            background-color: #333;
+            color: white;
+            padding: 20px;
+            text-align: center;
+        }
+        nav a {
+            margin: 10px;
+            text-decoration: none;
+            color: #333;
+        }
+        section {
+            padding: 20px;
+        }
+    </style>
+</head>
+<body>
+    <div id="app">
+        <header>
+            <h1>Stanoja jovanovic </h1>
+            <p>Web Developer | Pc builder  | [Network technician]</p>
+        </header>
+
+        <nav>
+            <router-link to="/">About Me</router-link>
+            <router-link to="/projects">Projects</router-link>
+            <router-link to="/contact">Contact</router-link>
+        </nav>
+
+        <router-view></router-view>
+    </div>
+
+    <!-- Including Vue and Vue Router from a CDN -->
+    <script src="https://unpkg.com/vue@3.0.0/dist/vue.global.js"></script>
+    <script src="https://unpkg.com/vue-router@4.0.0/dist/vue-router.global.js"></script>
+    <script>
+        const About = {
+            template: `
+                <section>
+                    <h2>About Me</h2>
+                    <p>
+                        Hello i am stanoja jovanovic but my nick name is stan, ive always had a deep intreset and love for computers ive been building them since a young age, im good with people compassitation and understanding IT too me isnt just a job its something i love thats why i know i would be a great worker in this field 
+                    </p>
+                </section>
+            `
+        };
+
+        const Projects = {
+            template: `
+                <section>
+                    <h2>Projects</h2>
+                    <p>
+                        Ive built many computers for friends and family starting from the age of 14, at about 18 i made a home business building and selling and configuring  computers and even networks computers/IT isnt just a job for me its something i truly love  
+                    </p>
+                </section>
+            `
+        };
+
+        const Contact = {
+            template: `
+                <section>
+                    <h2>Contact</h2>
+                    <p>
+                       Contact me on my email jovanovicstan123@gmail.com 
+                    </p>
+                </section>
+            `
+        };
+
+        const routes = [
+            { path: '/', component: About },
+            { path: '/projects', component: Projects },
+            { path: '/contact', component: Contact }
+        ];
+
+        const router = VueRouter.createRouter({
+            history: VueRouter.createWebHashHistory(),
+            routes
+        });
+
+        const app = Vue.createApp({});
+        app.use(router);
+        app.mount('#app');
+    </script>
+</body>
+</html>
